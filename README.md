@@ -1,8 +1,4 @@
-Percebi que a mensagem cortou antes do final! O resto das instruções de instalação e como usar ficaram faltando.
-
-Para garantir que você tenha o arquivo **inteiro** e sem erros, aqui está o código completo do `README.md`. É só copiar tudo de uma vez e substituir o que está no seu arquivo:
-
-```markdown
+att
 # 🎶 Auto Túnel - Gerador de Melodias Inteligente
 
 > Uma ferramenta CLI em Python para gerar, tocar e exportar melodias baseadas em escalas musicais.
