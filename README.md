@@ -1,6 +1,6 @@
 🎶 Auto Túnel – Gerador Inteligente de Melodias
 
-> Ferramenta CLI em Python para gerar, reproduzir e exportar melodias baseadas em escalas musicais.
+> Ferramenta em Python para gerar, reproduzir e exportar melodias baseadas em escalas musicais.
 
 
 
