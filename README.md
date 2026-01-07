@@ -27,20 +27,19 @@ Criação de arquivos MIDI prontos para uso em qualquer DAW, salvos na pasta mid
 Definição de BPM, quantidade de notas, tom base e oitava.
 
 
-
 ---
 
 🛠️ Tecnologias Utilizadas
 
 Python 3.11+
 
-Poetry – Gerenciamento de dependências
+Poetry — Gerenciamento de dependências
 
-NumPy & SciPy – Processamento de áudio e geração de ondas
+NumPy & SciPy — Processamento de áudio e geração de ondas
 
-MIDIUtil – Criação de arquivos MIDI
+MIDIUtil — Criação de arquivos MIDI
 
-SimpleAudio – Reprodução de áudio em tempo real
+SimpleAudio — Reprodução de áudio em tempo real
 
 
 
@@ -52,11 +51,10 @@ Este projeto utiliza o Poetry para gerenciar dependências.
 
 1. Clone o repositório
 
-git clone
-https://github.com/srGabrielx/AutoTunel.git
+git clone https://github.com/srGabrielx/AutoTunel.git
 cd AutoTunel
 
-2. Instale as dependências
+2. Instale o Poetry (se ainda não tiver)
 
 pip install poetry
 
@@ -71,13 +69,13 @@ poetry run python main.py
 
 Siga as instruções exibidas no terminal:
 
-1. Escolha o Tom (ex: C, F#, G).
+1. Escolha o Tom (ex: C, F#, G)
 
 
-2. Selecione a Escala (maior, menor ou pentatônica).
+2. Selecione a Escala (maior, menor ou pentatônica)
 
 
-3. Defina o BPM e o número de notas.
+3. Defina o BPM e o número de notas
 
 
 4. Escolha a ação desejada:
