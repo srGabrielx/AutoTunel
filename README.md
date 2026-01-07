@@ -52,16 +52,16 @@ Este projeto utiliza o Poetry para gerenciar dependências.
 
 1. Clone o repositório
 
-git clone https://github.com/srGabrielx/AutoTunel.git
-cd AutoTunel
+```git clone https://github.com/srGabrielx/AutoTunel.git
+cd AutoTunel```
 
 2. Instale as dependências
 
-poetry install
+```pip install poetry```
 
 3. Execute o programa
 
-poetry run python main.py
+```poetry run python main.py```
 
 
 ---
