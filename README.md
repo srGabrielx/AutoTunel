@@ -1,5 +1,5 @@
-att
 # 🎶 Auto Túnel - Gerador de Melodias Inteligente
+att
 
 > Uma ferramenta CLI em Python para gerar, tocar e exportar melodias baseadas em escalas musicais.
 
