@@ -3,8 +3,22 @@ import simpleaudio as sa
 from midiutil import MIDIFile
 from scipy.io.wavfile import write
 import random
-import os  
+import os
+import platform
+import tempfile
 from config import TONS, ESCALAS
+
+# --- Tradução de Notas ---
+REVERSO_TONS = {v: k for k, v in TONS.items()}
+
+def traduzir_notas(notas_midi):
+    """Converte números numéricos/MIDI em notas musicais legíveis (ex: 53 -> 'F4')"""
+    resultado = []
+    for nota in notas_midi:
+        nome = REVERSO_TONS[nota % 12]
+        oitava = nota // 12
+        resultado.append(f"{nome}{oitava}")
+    return resultado
 
 # --- Gerando melodia base ---
 def gerar_melodia(tom, escala, notas=16, oitava=4):
@@ -43,7 +57,36 @@ def gerar_onda(notas, bpm=120):
 def tocar_melodia(notas, bpm=120):
     fs, audio = gerar_onda(notas, bpm)
     print("🎵 Tocando...")
-    sa.play_buffer(audio, 1, 2, fs).wait_done()
+    
+    try:
+        # Tenta usar o simpleaudio primeiro
+        sa.play_buffer(audio, 1, 2, fs).wait_done()
+    except Exception as e:
+        print(f"⚠️ Erro no SimpleAudio: {e}")
+        print("🔧 Acionando método alternativo nativo do sistema...")
+        
+        # Cria um arquivo temporário de áudio
+        temp_dir = tempfile.gettempdir()
+        temp_wav = os.path.join(temp_dir, "temp_melodia.wav")
+        write(temp_wav, fs, audio)
+        
+        # Reproduz usando recursos nativos dependendo do SO
+        sistema = platform.system()
+        try:
+            if sistema == "Windows":
+                import winsound
+                winsound.PlaySound(temp_wav, winsound.SND_FILENAME)
+            elif sistema == "Darwin": # macOS
+                os.system(f"afplay {temp_wav}")
+            else: # Linux
+                os.system(f"aplay {temp_wav}")
+        except Exception as fallback_error:
+            print(f"❌ Não foi possível reproduzir o áudio: {fallback_error}")
+            print("💡 Dica: Verifique se as caixas de som/fones estão conectados e funcionando.")
+        finally:
+            # Limpa o arquivo temporário após tentar tocar
+            if os.path.exists(temp_wav):
+                os.remove(temp_wav)
 
 def salvar_wav(notas, bpm, nome_arquivo):
     # Define a pasta e cria se não existir

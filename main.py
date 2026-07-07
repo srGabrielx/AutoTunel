@@ -20,9 +20,12 @@ if __name__ == "__main__":
         qtd_notas = int(input("Quantas notas? (ex: 16): "))
         bpm_input = int(input("BPM? (ex: 120): "))
 
-        # 2. Processamento (Chama o engine)
+        # 2. Processamento (Chama o motor)
         melodia = engine.gerar_melodia(tom_input, escala_input, qtd_notas)
-        print("\nNotas geradas:", melodia)
+        melodia_legivel = engine.traduzir_notas(melodia)
+        
+        print("\n🤖 Valores MIDI:", melodia)
+        print("🎼 Notas Musicais:", melodia_legivel)
 
         # 3. Menu de Ação
         print("\n1️⃣ Tocar melodia")
